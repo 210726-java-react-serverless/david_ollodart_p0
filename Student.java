@@ -20,6 +20,7 @@ public class Student throws InvalidPasswordException {
     public void setMinor(String minor) {this.minor = minor;}
     public void setPassword(String currentPassword, String newPassword) throws InvalidPasswordException {
         if currentPassword.equals(password) {this.password = newPassword;}
+	throw InvalidPasswordException;
     }
 
     // getters
@@ -31,6 +32,7 @@ public class Student throws InvalidPasswordException {
     public int getYear() {return year;}
     public String getPassword(String currentPassword) throws InvalidPasswordException {
         if password.equals(currentPassword) {return password;}
+	throw InvalidPasswordException;
     }
 
     // constructor
