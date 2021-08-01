@@ -1,6 +1,6 @@
-import com.revature.exceptions.InvalidPasswordException;
+import com.revature.exceptions.IncorrectPasswordException;
 
-public class Student throws InvalidPasswordException {
+public class Student throws IncorrectPasswordException {
 
     // instance reference variables
     private String username;
@@ -18,9 +18,9 @@ public class Student throws InvalidPasswordException {
     public void setLastName(String lastName) {this.lastName = lastName;}
     public void setMajor(String major) {this.major = major;}
     public void setMinor(String minor) {this.minor = minor;}
-    public void setPassword(String currentPassword, String newPassword) throws InvalidPasswordException {
+    public void setPassword(String currentPassword, String newPassword) throws IncorrectPasswordException {
         if currentPassword.equals(password) {this.password = newPassword;}
-	throw InvalidPasswordException;
+	throw IncorrectPasswordException;
     }
 
     // getters
@@ -30,9 +30,9 @@ public class Student throws InvalidPasswordException {
     public String getMajor() {return major;}
     public String getMinor() {return minor;}
     public int getYear() {return year;}
-    public String getPassword(String currentPassword) throws InvalidPasswordException {
+    public String getPassword(String currentPassword) throws IncorrectPasswordException {
         if password.equals(currentPassword) {return password;}
-	throw InvalidPasswordException;
+	throw IncorrectPasswordException;
     }
 
     // constructor
