@@ -18,8 +18,13 @@ public class Class {
 	WEDNESDAY (3),
         THURSDAY (4),
 	FRIDAY (5),
-	SATURDAY (6)
-    } 
+	SATURDAY (6);
+
+	private final weekinteger;
+	Day(int weekinteger) {
+		this.weekinteger = weekinteger
+	}
+    }
 
     public Class(String className){
 	    this.className = className;
