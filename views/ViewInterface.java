@@ -1,0 +1,3 @@
+interface ViewInterface {
+    void render() {}
+}

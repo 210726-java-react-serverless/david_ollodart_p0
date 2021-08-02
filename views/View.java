@@ -1,4 +1,4 @@
-public class View {
+public class View implements ViewInterface{
 
     private RegistrationCatalogDAO registrationCatalogDAO;
     private BufferedReader consoleReader;
