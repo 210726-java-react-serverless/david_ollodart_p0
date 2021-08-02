@@ -1,9 +1,10 @@
-public class RegistrationCatalogView extends View {
+public class View {
 
+}
     private RegistrationCatalogDAO registrationCatalogDAO;
     private String route;
 
     RegistrationCatalogView(registrationCatalogDAO, route) {
-            super();
+	    this.registrationCatalogDAO = registrationCatalogDAO;
+	    this.route = route;
     }
-}
