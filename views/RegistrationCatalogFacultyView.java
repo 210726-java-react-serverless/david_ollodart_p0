@@ -4,4 +4,7 @@ public class RegistrationCatalogFacultyView extends RegistrationCatalogView {
             super();
     }
 
+    public void addClassToCatalog(){} // different from "add class" as a student
+    public void removeClassFromCatalog(){}
+    public void editClassInCatalog(){}
 }
