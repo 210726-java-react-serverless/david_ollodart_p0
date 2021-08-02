@@ -1,10 +1,10 @@
 public class View {
 
-}
     private RegistrationCatalogDAO registrationCatalogDAO;
-    private String route;
+    private BufferedReader consoleReader;
 
-    RegistrationCatalogView(registrationCatalogDAO, route) {
+    View(RegistrationCatalogDAO registrationCatalogDAO, BufferedReader consoleReader) {
 	    this.registrationCatalogDAO = registrationCatalogDAO;
-	    this.route = route;
+	    this.consoleReader = consoleReader
     }
+}

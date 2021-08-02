@@ -1,10 +1,7 @@
 public class RegistrationCatalogFacultyView extends RegistrationCatalogView {
 
-    private RegistrationCatalogDAO registrationCatalogDAO;
-    private String route;
-
-    RegistrationCatalogView(registrationCatalogDAO, route) {
-	    super();
+    RegistrationCatalogView(RegistrationCatalogDAO registrationCatalogDAO, BufferedReader consoleReader) {
+            super();
     }
 
 }
