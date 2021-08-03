@@ -22,7 +22,7 @@ abstract public class View implements ViewInterface{
             System.out.printf("enter %s> ", field);
             return consoleReader.readLine();
         } catch (IOException io) {
-            System.out.println("\ntry again");
+            System.out.println("\nsystem error, try again");
             repeatedAsk(field);
         }
         return repeatedAsk(field); // in case not caught by IOException
@@ -47,5 +47,20 @@ abstract public class View implements ViewInterface{
             return repeatedAskForUsernameCheckUnique();
         }
         return username;
+    }
+
+    protected boolean allGood() {
+        System.out.print("all good?[Y/n]> ");
+        try {
+            String res = consoleReader.readLine();
+            if (!res.equals("n")) {
+                return true;
+            }
+            return false;
+        } catch (IOException ioe) {
+            System.out.println("\nsystem error, try again");
+            allGood();
+        }
+        return false; // unknown exceptions or problems?
     }
 }
