@@ -1,6 +1,7 @@
 package com.revature.dollodartp0.views;
 
 import com.revature.dollodartp0.dao.RegistrationCatalogDAO;
+import com.revature.dollodartp0.model.User;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -37,5 +38,14 @@ abstract public class View implements ViewInterface{
         else {
             System.out.println("try again");
             return repeatedAskForPasswordTwice();}
+    }
+    protected String repeatedAskForUsernameCheckUnique() {
+        String username = repeatedAskForUsername();
+        User user = registrationCatalogDAO.getUserbyUsername(username);
+        if (user != null) {
+            System.out.println("username exists, try again");
+            return repeatedAskForUsernameCheckUnique();
+        }
+        return username;
     }
 }
