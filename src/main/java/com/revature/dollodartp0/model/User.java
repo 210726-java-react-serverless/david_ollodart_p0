@@ -15,7 +15,7 @@ public class User {
     public void setFirstName(String firstName) {this.firstName = firstName;}
     public void setLastName(String lastName) {this.lastName = lastName;}
     public void setPassword(String currentPassword, String newPassword) throws IncorrectPasswordException {
-        if currentPassword.equals(password) {this.password = newPassword;}
+        if (currentPassword.equals(password)) {this.password = newPassword;}
 	else {throw IncorrectPasswordException;}
     }
 
@@ -24,7 +24,7 @@ public class User {
     public String getFirstName() {return firstName;}
     public String getLastName() {return lastName;}
     public String getPassword(String currentPassword) throws IncorrectPasswordException {
-        if password.equals(currentPassword) {return password;}
+        if (password.equals(currentPassword)) {return password;}
 	else {throw IncorrectPasswordException;}
     }
 
