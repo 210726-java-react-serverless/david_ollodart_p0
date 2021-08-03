@@ -20,7 +20,7 @@ public class Student extends User {
     public int getYear() {return year;}
 
     // constructor
-    public Student(String username, String password) throws IncorrectPasswordException {
+    public Student(String username, String password) {
         this.username = username;
         this.password = password;
         // check if this student is already registered somewhere?

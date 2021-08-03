@@ -2,13 +2,13 @@ package com.revature.dollodartp0.model;
 
 import com.revature.exceptions.IncorrectPasswordException;
 
-public class User throws IncorrectPasswordException {
+public class User {
 
     // instance reference variables
-    private String username;
-    private String password;
-    private String firstName;
-    private String lastName;
+    protected String username;
+    protected String password;
+    protected String firstName;
+    protected String lastName;
 
     // setters
     public void setUsername(String username) {this.username = username;}
@@ -29,7 +29,8 @@ public class User throws IncorrectPasswordException {
     }
 
     // constructor
-    public User(String username, String password){
+    public User() {} // default constructor
+    public User(String username, String password) {
         this.username = username;
         // check if the user is registered is for the view or some "data integrity service", which will use the DAO
         this.password = password;

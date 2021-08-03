@@ -17,7 +17,7 @@ public class Instructor extends User {
     public String getTitle() {return title;}
 
     // constructor
-    public Instructor(String username, String password) throws IncorrectPasswordException {
+    public Instructor(String username, String password) {
         this.username = username;
         this.password = password;
     }
