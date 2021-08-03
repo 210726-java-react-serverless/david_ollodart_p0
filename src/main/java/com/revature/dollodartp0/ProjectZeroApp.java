@@ -23,10 +23,11 @@ public class ProjectZeroApp{
     // this is statically available routingTable so any view can lead to any other view
     public static enum routingTable {
     	LOGIN ("/login"),
+		REGISTER ("/register"),
 		FACULTY_VIEW ("/faculty-view"),
 		STUDENT_VIEW ("/student-view");
 
-		private final String route;
+		public final String route;
 		routingTable(String route) {
 		this.route = route;
 	}
