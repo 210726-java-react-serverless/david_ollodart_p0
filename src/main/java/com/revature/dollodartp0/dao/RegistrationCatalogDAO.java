@@ -1,4 +1,6 @@
-class RegistrationCatalogDAO{
+package com.revature.dollodartp0.dao;
+
+public class RegistrationCatalogDAO{
 
     public List<Class> getClasses(String class_name) {
             // List type in case class name, like ENG 101 

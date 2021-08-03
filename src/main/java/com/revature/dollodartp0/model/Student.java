@@ -1,3 +1,5 @@
+package com.revature.dollodartp0.model;
+
 import com.revature.exceptions.IncorrectPasswordException;
 
 public class Student extends User throws IncorrectPasswordException {

@@ -1,8 +1,10 @@
+package com.revature.dollodartp0.validators;
+
 import java.io.Console;
 import java.util.Arrays;
 import java.io.IOException;
 
-public class Password {
+public class PasswordValidator {
     
     public static void main (String args[]) throws IOException {
 

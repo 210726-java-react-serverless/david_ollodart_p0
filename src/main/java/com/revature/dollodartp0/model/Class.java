@@ -1,3 +1,5 @@
+package com.revature.dollodartp0.model;
+
 import com.revature.exception.InvalidTimeException;
 
 public class Class {
