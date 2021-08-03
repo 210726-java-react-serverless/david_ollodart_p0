@@ -2,7 +2,7 @@ package com.revature.dollodartp0.model;
 
 import com.revature.exceptions.IncorrectPasswordException;
 
-public class Instructor extends User throws IncorrectPasswordException {
+public class Instructor extends User {
 
     // instance reference variables
     private String department;
@@ -17,7 +17,7 @@ public class Instructor extends User throws IncorrectPasswordException {
     public String getTitle() {return title;}
 
     // constructor
-    public Student(String username, String password){
+    public Instructor(String username, String password) throws IncorrectPasswordException {
         this.username = username;
         this.password = password;
     }

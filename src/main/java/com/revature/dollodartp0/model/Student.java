@@ -2,7 +2,7 @@ package com.revature.dollodartp0.model;
 
 import com.revature.exceptions.IncorrectPasswordException;
 
-public class Student extends User throws IncorrectPasswordException {
+public class Student extends User {
 
     // instance reference variables
     private int year; // 1, 2, 3, 4, or 4+ year
@@ -20,7 +20,7 @@ public class Student extends User throws IncorrectPasswordException {
     public int getYear() {return year;}
 
     // constructor
-    public Student(String username, String password){
+    public Student(String username, String password) throws IncorrectPasswordException {
         this.username = username;
         this.password = password;
         // check if this student is already registered somewhere?
