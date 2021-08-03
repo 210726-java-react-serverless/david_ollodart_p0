@@ -1,10 +1,12 @@
 package com.revature.dollodartp0;
 
 import com.revature.dollodartp0.views.View;
+import com.revature.dollodartp0.views.LoginView;
 import com.revature.dollodartp0.dao.RegisterCatalogDAO;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.HashMap;
 
 public class ProjectZeroApp{
     /**
@@ -14,7 +16,7 @@ public class ProjectZeroApp{
     public static View currentView;
     // not necessarily good practice, but don't want to dependency inject the App State
     // which is the one most global thing of anything, into every view in order to give it a callback
-    private final Map<String, View> views = Map<>();
+    private final HashMap<String, View> views = new HashMap<>();
 
     // this is statically available routingTable so any view can lead to any other view
     public static enum routingTable {
@@ -50,7 +52,7 @@ public class ProjectZeroApp{
     }
 
     private void switchScreen(String route){
-    	view.get(route).render();
+    	views.get(route).render();
     }
 
 }
