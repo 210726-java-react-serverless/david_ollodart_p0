@@ -3,7 +3,9 @@ import java.util.TreeSet;
 
 public class RegistrationCatalogDAO{
 
-    RegistrationCatalogDAO(MongoDB mongoDB) {} // constructor using backend object
+    public RegistrationCatalogDAO() {
+        //MongoDB mongoDB = new MongoDB();
+    } // constructor using backend object
 
     public TreeSet<Class> getClasses(String class_name) {
             // TreeSet (TODO: comparator or Class compare method for sorting query result)

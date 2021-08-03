@@ -9,7 +9,6 @@ import com.revature.dollodartp0.views.LoginView;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.HashMap;
-import java.util.Map;
 
 public class ProjectZeroApp{
     /**
@@ -17,7 +16,7 @@ public class ProjectZeroApp{
      */
     
     public static String currentRoute;
-    // not necessarily good practice, but don't want to dependency inject the App State
+	// not necessarily good practice, but don't want to dependency inject the App State
     // which is the one most global thing of anything, into every view in order to give it a callback
     private final HashMap<String, View> views = new HashMap<>();
 
@@ -38,13 +37,17 @@ public class ProjectZeroApp{
 		RegistrationCatalogDAO registerCatalogDAO = new RegistrationCatalogDAO();
 		View loginview = new LoginView(registerCatalogDAO, consoleReader);
 		View currentScreen = loginview;
-		views.add(loginview);
-		// technically this object creation could be deferred until it is known whether it is faculty or student
-		// but this is at the moment designed as eager loading
-		views.add(new RegistrationCatalogFacultyView(registerCatalogDAO, consoleReader));
-		views.add(new RegistrationCatalogStudentView(registerCatalogDAO, consoleReader));
 
 		ProjectZeroApp appState = new ProjectZeroApp();
+
+		appState.views.put(routingTable.LOGIN.route, loginview);
+		// technically this object creation could be deferred until it is known whether it is faculty or student
+		// but this is at the moment designed as eager loading
+		appState.views.put(routingTable.FACULTY_VIEW.route,
+				new RegistrationCatalogFacultyView(registerCatalogDAO, consoleReader));
+		appState.views.put(routingTable.STUDENT_VIEW.route,
+				new RegistrationCatalogStudentView(registerCatalogDAO, consoleReader));
+
 		// the views render method must complete
 		// no need for concurrency and therefore threads between views
 		// since only one view is displayed at a time
