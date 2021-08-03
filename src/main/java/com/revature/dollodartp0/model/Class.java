@@ -41,13 +41,13 @@ public class Class {
 		this.courseNumber = Integer.parseInt(className.substring(3).trim());
     }
 
-    public void setTime(int startHour, int startMinutes, int durationHour, int durationMinutes, String[] weekdays) throws InvalidTimeException {
+    public void setTimeDuration(int startHour, int startMinutes, int durationHour, int durationMinutes) throws InvalidTimeException {
 	    int remMinutes = (startMinutes + durationMinutes) % 60;
 	    int endMinutes = 60 * remMinutes;
 	    int endHour = startHour + durationHour + (startMinutes + durationMinutes) / 60; // Java does integer division
-	    setTime(startHour, startMinutes, endHour, endMinutes, weekdays);
+	    setTime(startHour, startMinutes, endHour, endMinutes);
     }
-    public void setTime(int startHour, int startMinutes, int endHour, int endMinutes, String[] weekdays) throws InvalidTimeException {
+    public void setTime(int startHour, int startMinutes, int endHour, int endMinutes) throws InvalidTimeException {
 	    // input validation
 	    if (startMinutes % 15 != 0) {
 	    	throw InvalidTimeException("Start must occur at quarter, half, three quarter, or on the hour");}
@@ -63,16 +63,15 @@ public class Class {
 	    	this.endMinutes += 60;
 		    this.endHour = endHour - 1;} 
 	    else {this.endHour = endHour;}
-	    convertDayInputToDayList(weekdays);
     }
 
-    private LinkedList<Day> convertDayInputToDayList(String[] weekdays){
+    private void setDays(String[] weekdays){
 	    // use enum to convert string to int
 	    // take first three characters and convert to uppercase:
 	    // MO, TU, WE, TH, FR, SA, SU
 	    // while redundant, user displays are sometimes done as Mon, Tue, Wed, Thu, Fri, Sat, Sun
 	    // and even the semi-single character M, T, W, Th, F, Sa, S is used
-	    this.weekdays = LinkedList<Day>();
+	    this.weekdays = new LinkedList<>();
 	    for (String day : weekdays) {
 	    	switch (day) {
 			case "Mo": 
