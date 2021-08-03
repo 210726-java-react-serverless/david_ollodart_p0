@@ -1,5 +1,5 @@
 package com.revature.dollodartp0.exceptions;
 
-class InvalidTimeException extends RuntimeException {
+public class InvalidTimeException extends RuntimeException {
     //
 }

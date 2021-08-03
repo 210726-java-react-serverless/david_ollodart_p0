@@ -1,6 +1,6 @@
 package com.revature.dollodartp0.model;
 
-import com.revature.exceptions.IncorrectPasswordException;
+import com.revature.dollodartp0.exceptions.IncorrectPasswordException;
 
 public class Instructor extends User {
 

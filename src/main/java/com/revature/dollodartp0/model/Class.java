@@ -1,6 +1,6 @@
 package com.revature.dollodartp0.model;
 
-import com.revature.exception.InvalidTimeException;
+import com.revature.dollodartp0.exceptions.InvalidTimeException;
 
 import java.util.LinkedList;
 
@@ -50,13 +50,13 @@ public class Class {
     public void setTime(int startHour, int startMinutes, int endHour, int endMinutes) throws InvalidTimeException {
 	    // input validation
 	    if (startMinutes % 15 != 0) {
-	    	throw InvalidTimeException("Start must occur at quarter, half, three quarter, or on the hour");}
+	    	throw new InvalidTimeException("Start must occur at quarter, half, three quarter, or on the hour");}
 	    if (endMinutes % 15 != 0) {
-	    	throw InvalidTimeException("End must occur at quarter, half, three quarter, or on the hour");}
+	    	throw new InvalidTimeException("End must occur at quarter, half, three quarter, or on the hour");}
 	    if (startHour < 8) {
-	    	throw InvalidTimeException("Start hour must be no less than 08:00");}
+	    	throw new InvalidTimeException("Start hour must be no less than 08:00");}
 	    if (endHour >= 20 && endMinutes > 0) {
-	    	throw InvalidTimeException("End time must be no greater than 20:00");}
+	    	throw new InvalidTimeException("End time must be no greater than 20:00");}
 	    this.startHour = startHour;
 	    this.endMinutes = endMinutes - 10; // end class 10 minutes early for students who have a class right afterward
 	    if (this.endMinutes < 0) {

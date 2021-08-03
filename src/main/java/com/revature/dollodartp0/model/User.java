@@ -1,6 +1,6 @@
 package com.revature.dollodartp0.model;
 
-import com.revature.exceptions.IncorrectPasswordException;
+import com.revature.dollodartp0.exceptions.IncorrectPasswordException;
 
 public class User {
 
@@ -16,7 +16,7 @@ public class User {
     public void setLastName(String lastName) {this.lastName = lastName;}
     public void setPassword(String currentPassword, String newPassword) throws IncorrectPasswordException {
         if (currentPassword.equals(password)) {this.password = newPassword;}
-	else {throw IncorrectPasswordException;}
+	else {throw new IncorrectPasswordException();}
     }
 
     // getters
@@ -25,7 +25,7 @@ public class User {
     public String getLastName() {return lastName;}
     public String getPassword(String currentPassword) throws IncorrectPasswordException {
         if (password.equals(currentPassword)) {return password;}
-	else {throw IncorrectPasswordException;}
+	else {throw new IncorrectPasswordException();}
     }
 
     // constructor
