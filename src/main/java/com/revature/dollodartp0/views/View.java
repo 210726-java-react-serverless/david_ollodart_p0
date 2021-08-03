@@ -1,10 +1,16 @@
-public class View implements ViewInterface{
+package com.revature.dollodartp0.views;
 
-    private RegistrationCatalogDAO registrationCatalogDAO;
-    private BufferedReader consoleReader;
+import com.revature.dollodartp0.dao.RegistrationCatalogDAO;
 
-    View(RegistrationCatalogDAO registrationCatalogDAO, BufferedReader consoleReader) {
+import java.io.BufferedReader;
+
+abstract public class View implements ViewInterface{
+
+    protected RegistrationCatalogDAO registrationCatalogDAO;
+    protected BufferedReader consoleReader;
+
+    public View(RegistrationCatalogDAO registrationCatalogDAO, BufferedReader consoleReader) {
 	    this.registrationCatalogDAO = registrationCatalogDAO;
-	    this.consoleReader = consoleReader
+	    this.consoleReader = consoleReader;
     }
 }

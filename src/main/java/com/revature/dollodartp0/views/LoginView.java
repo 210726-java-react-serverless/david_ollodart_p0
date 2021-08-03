@@ -1,6 +1,17 @@
+package com.revature.dollodartp0.views;
+
+import com.revature.dollodartp0.dao.RegistrationCatalogDAO;
+
+import java.io.BufferedReader;
+
 public class LoginView extends View{
 
-    RegistrationCatalogView(RegistrationCatalogDAO registrationCatalogDAO, BufferedReader consoleReader) {
-            super();
+    public LoginView(RegistrationCatalogDAO registrationCatalogDAO, BufferedReader consoleReader) {
+        super(registrationCatalogDAO, consoleReader);
+    }
+
+    @Override
+    public void render() {
+
     }
 }

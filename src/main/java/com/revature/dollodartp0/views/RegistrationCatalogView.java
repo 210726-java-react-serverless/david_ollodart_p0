@@ -1,7 +1,15 @@
-public class RegistrationCatalogView extends View {
+package com.revature.dollodartp0.views;
 
-    RegistrationCatalogView(RegistrationCatalogDAO registrationCatalogDAO, BufferedReader consoleReader) {
-            super();
+import com.revature.dollodartp0.dao.RegistrationCatalogDAO;
+
+import java.io.BufferedReader;
+
+import com.revature.dollodartp0.views.View;
+
+public abstract class RegistrationCatalogView extends View {
+
+    public RegistrationCatalogView(RegistrationCatalogDAO registrationCatalogDAO, BufferedReader consoleReader) {
+        super(registrationCatalogDAO, consoleReader);
     }
 
     public void viewRegistrationCatalog() {}
