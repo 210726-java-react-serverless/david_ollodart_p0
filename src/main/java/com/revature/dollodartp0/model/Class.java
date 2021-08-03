@@ -2,6 +2,8 @@ package com.revature.dollodartp0.model;
 
 import com.revature.exception.InvalidTimeException;
 
+import java.util.LinkedList;
+
 public class Class {
 
     private String className; 
@@ -15,17 +17,17 @@ public class Class {
 
     public enum Day {
         SUNDAY (0),
-	MONDAY (1),
-	TUESDAY (2),
-	WEDNESDAY (3),
+		MONDAY (1),
+		TUESDAY (2),
+		WEDNESDAY (3),
         THURSDAY (4),
-	FRIDAY (5),
-	SATURDAY (6);
+		FRIDAY (5),
+		SATURDAY (6);
 
-	private final weekinteger;
-	Day(int weekinteger) {
-		this.weekinteger = weekinteger
-	}
+		private final int weekinteger;
+		Day(int weekinteger) {
+		this.weekinteger = weekinteger;
+		}
     }
 
     public Class(String className){
@@ -34,9 +36,9 @@ public class Class {
 	    // don't want to define a tuple return type which is relatively syntactically involved in Java
     }
 
-    private static void parseClassName(String className){
-	this.department = className.substring(0, 3);
-	this.courseNumber = Integer.parseInt(className.substring(3).trim());
+    private void parseClassNameToDepartmentAndCourseNumber(String className){
+		this.department = className.substring(0, 3);
+		this.courseNumber = Integer.parseInt(className.substring(3).trim());
     }
 
     public void setTime(int startHour, int startMinutes, int durationHour, int durationMinutes, String[] weekdays) throws InvalidTimeException {
@@ -47,13 +49,18 @@ public class Class {
     }
     public void setTime(int startHour, int startMinutes, int endHour, int endMinutes, String[] weekdays) throws InvalidTimeException {
 	    // input validation
-	    if (startMinutes % 15 != 0) {throw InvalidTimeException("Start must occur at quarter, half, three quarter, or on the hour");}
-	    if (endMinutes % 15 != 0) {throw InvalidTimeException("End must occur at quarter, half, three quarter, or on the hour");}
-	    if (startHour < 8) {throw InvalidTimeException("Start hour must be no less than 08:00");}
-	    if (endHour >= 20 && endMinutes > 0) {throw InvalidTimeException("End time must be no greater than 20:00");}
+	    if (startMinutes % 15 != 0) {
+	    	throw InvalidTimeException("Start must occur at quarter, half, three quarter, or on the hour");}
+	    if (endMinutes % 15 != 0) {
+	    	throw InvalidTimeException("End must occur at quarter, half, three quarter, or on the hour");}
+	    if (startHour < 8) {
+	    	throw InvalidTimeException("Start hour must be no less than 08:00");}
+	    if (endHour >= 20 && endMinutes > 0) {
+	    	throw InvalidTimeException("End time must be no greater than 20:00");}
 	    this.startHour = startHour;
 	    this.endMinutes = endMinutes - 10; // end class 10 minutes early for students who have a class right afterward
-	    if (this.endMinutes < 0) {this.endMinutes += 60; 
+	    if (this.endMinutes < 0) {
+	    	this.endMinutes += 60;
 		    this.endHour = endHour - 1;} 
 	    else {this.endHour = endHour;}
 	    convertDayInputToDayList(weekdays);
@@ -75,21 +82,21 @@ public class Class {
 				this.weekdays.add(Day.TUESDAY);
 				break;
 			case "We": 
-				this.weekdays.add(Day.TUESDAY);
+				this.weekdays.add(Day.WEDNESDAY);
 				break;
 			case "Th": 
-				this.weekdays.add(Day.TUESDAY);
+				this.weekdays.add(Day.THURSDAY);
 				break;
 			case "Fr": 
-				this.weekdays.add(Day.TUESDAY);
+				this.weekdays.add(Day.FRIDAY);
 				break;
 			case "Sa": 
-				this.weekdays.add(Day.TUESDAY);
+				this.weekdays.add(Day.SATURDAY);
 				break;
 			case "Su": 
-				this.weekdays.add(Day.TUESDAY);
+				this.weekdays.add(Day.SUNDAY);
 				break;
-		}
+			}
 	    }
 	// TODO use Collection.sort and enum properties of numeric day of week to sort day List
     }
